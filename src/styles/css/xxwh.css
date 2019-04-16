@@ -1,0 +1,510 @@
+.all {
+    width: 100%;
+    height: 100%;
+    background: #ededed;
+}
+
+.contentnr {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    /* background: #ffffff; */
+}
+
+.content_title {
+    width: 1200px;
+    height: 56px;
+    line-height: 56px;
+    background: #ffffff;
+    margin: 15px 0 20px 0;
+}
+
+.content_title p {
+    font-size: 16px;
+    color: #0099ff;
+    font-weight: 600;
+    padding-left: 15px;
+    height: 56px;
+    line-height: 56px;
+}
+
+.cxtj {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: url(../images/cxtjbjt.png) no-repeat;
+}
+
+.cxtj p,
+.cxjg p {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    padding-left: 15px;
+}
+
+.cxjg {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: #69c3ff
+}
+/* 表单 */
+.cxtj_content{
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+}
+.form_content{
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px;
+    background: #ffffff;
+}
+.bd_table {
+    width: 830px;
+    margin: 0 auto;
+    /* padding-left: 180px;
+    padding-right: 180px; */
+    padding-top: 30px;
+    box-sizing: border-box;
+    /* width: 100%; */
+    height: auto;
+}
+
+.bd_table table {
+    width: 100%;
+    padding: 0 100px;
+}
+
+.bd_table tr {
+    margin-bottom: 10px;
+}
+.bd_table tr td{
+    position: relative;
+}
+.bd_table tr .bdxx {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.bd_table .bgtm {
+    /* width: 9%; */
+    text-align: left;
+    vertical-align: top;
+    padding: 13px 5px 10px 40px;
+    color: #333333;
+    font-weight: 600;
+}
+.whhjdz,.whsfz{
+    width: 200px;
+}
+.wh_text{
+    width: 270px;
+}
+.whsfjy,.whxm{
+    width: 100px;
+    margin-left: 40px;
+}
+
+
+.bd_table table .kg {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding:6px 0 8px 5px;
+}
+
+.bd_table table .kd {
+    width: 97%;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #cccccc;
+    /* padding: 1px 0; */
+}
+
+.cxcz_btn {
+    /* width: 100%;
+    margin: 30px 0 0 0;
+    padding-bottom: 30px;
+    text-align: center; */
+}
+
+.cxcz_btn input,
+.cxcz_btn button {
+    /* padding: 4px 18px 4px 18px;
+    color: #ffffff;
+    font-size: 14px;
+    background: #0099ff;
+    border: 1px solid #0099ff;
+    cursor: pointer; */
+}
+
+.new_btn,
+.fh_btn,
+.bc_btn {
+    margin-left: 20px;
+}
+.z_btn{
+    text-align: center;
+    margin: 80px 0;
+}
+
+/* 表格 */
+
+.cxbg {
+    width: 100%;
+    height: auto;
+    /* margin: 0 auto; */
+    background: #fff;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.list {
+    width: 100%;
+    border-collapse: collapse;
+    color: #666666;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.list thead {
+    background: #ffffff;
+    color: #003e8c;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #003e8c;
+}
+.list tbody {
+    font-size: 18px;
+    font-weight: 600;
+    color: #666666;
+}
+
+.list tr td {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    text-align: center;
+    /* border: 1px solid #e2eaf0; */
+    border-collapse: collapse;
+}
+.list tr td a{
+    cursor:pointer
+}
+.even{
+    background: #f1f9ff;
+}
+.odd{
+    background: #ffffff;
+}
+.list tbody tr{
+    border-bottom: 1px solid #e5e5e5;
+} 
+.list tbody tr:hover td{
+    background: #c9e9ff;
+}
+/* 贫困人员信息采集 */
+
+.com_bt {
+    line-height: 35px;
+}
+.left_wd {
+    width: 158px;
+    /* text-align: left;
+    font-weight: bold;
+    color: #333; */
+    font-size: 18px;
+    text-align: left;
+    vertical-align: top;
+    /* padding: 13px 5px 10px 40px; */
+    color: #333333;
+    font-weight: 600;
+}
+.bd {
+    margin-bottom: 22px;
+    display: inline-block;
+}
+.com_text {
+    /* padding: 9px 7px; */
+    padding:7px 0 7px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    height: 40px;
+    /* line-height: 40px; */
+    color: #666666;
+    font-size: 18px;
+}
+
+.hj {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.xm {
+    padding-right: 5px;
+    padding-left: 50px;
+    font-size: 18px;
+    vertical-align: top;
+    color: #333333;
+    font-weight: 600;
+}
+
+.csrqn {
+    width: 279px;
+    height: 36px;
+    font-weight: 600;
+    /* border: 1px solid #ccc; */
+}
+
+.csrq {
+    /* width: 50px; */
+}
+
+.nl {
+    padding-left: 50px;
+    padding-right: 5px;
+    font-size: 18px;
+    vertical-align: top;
+    color: #333333;
+    font-weight: 600;
+}
+
+.xb {
+    padding-left: 18px;
+    padding-right: 5px;
+    font-size: 18px;
+    vertical-align: top;
+    color: #333333;
+    font-weight: 600;
+}
+.jyyy{
+    padding-left: 47px;
+    padding-right: 5px;
+    font-size: 18px;
+    vertical-align: top;
+    color: #333333;
+    font-weight: 600;
+}
+.jyyyk{
+    width: 146px;
+}
+.sfzk{
+    width: 280px;
+}
+
+.nlk {
+    width: 110px;
+}
+
+.xbk {
+    width: 110px;
+}
+
+
+.xmk {
+   width: 288px;
+}
+
+.dhhm {
+    width: 15%
+}
+
+.hjkd {
+    width: 668px;
+} */
+
+.hjkd {
+    width: 585px;
+}
+
+.dhhm {
+    width: 215px;
+}
+
+.gddh {
+    padding-right: 5px;
+    padding-left: 91px;
+    font-size: 18px;
+    vertical-align: top;
+    color: #333333;
+    font-weight: 600;
+}
+
+.qhline {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.gddhqh {
+    width: 288px;
+    /* width: 15% */
+}
+.gddhss {
+    width: 70px;
+}
+.gddhqh_new {
+    width: 191px;
+}
+.gddhk {
+    width: 170px;
+    /* width: 22% */
+}
+.xbxz{
+    /* text-align: center; */
+}
+.yjy,.wjy{
+
+    width:15px;
+    height:15px;
+    border:none;
+ 
+}
+
+
+
+
+.jyyx {
+    padding-left: 25px;
+    padding-right: 4px;
+    font-size: 18px;
+    vertical-align: top;
+    color: #333333;
+    font-weight: 600;
+}
+
+.jyyxk {
+    width: 181px;
+    position: relative;
+}
+
+.jykd {
+    width: 668px;
+}
+
+.jydwmc {
+    width: 668px;
+}
+
+.zjj {
+    padding-left: 15px;
+}
+
+.jy_content {
+    width: 830px;
+    height: auto;
+    display: none;
+}
+.xing{
+    color: red;
+}
+
+/* 公共字体样式 */
+.con_font {
+    font-size: 18px !important;
+    font-family: "黑体" !important;
+    font-weight: bold !important;
+    color: #333333 !important;
+}
+#detailWrap .left{
+    position: relative;
+}
+#detailWrap .left .error_info{
+    top: 44px;
+}
+.jyyx_list{
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    z-index: 2;
+    width: 179px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    border-top:none;
+    background-color: #ffffff;
+}
+.jyyx_list li{
+    padding: 5px;
+    cursor: pointer;
+}
+.jyyx_list li:hover{
+    background: #0099ff;
+    color: #fff;
+}
+
+
+/* 人员统计表 */
+.contentnrbg {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    background: #ffffff;
+    color: #000000;
+}
+.rytjtitle{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20px;
+}
+.rytjrq{
+    font-size: 14px;
+    text-align: center;
+    padding:20px 0;
+}
+.tablebz{
+    padding-bottom: 5px;
+}
+.tjjg{
+    float: left;;
+	padding-left: 8px;
+    font-size: 14px;
+    color: #000000;
+}
+.danwei{
+	float: right;
+	padding-right: 8px;
+    font-size: 14px;
+    color: #000000;	
+}
+/* 表格 */
+.rytjlist {
+    width: 100%;
+    border-collapse: collapse;
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 20px;
+    
+}
+.rytjlist tr td {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    text-align: center;
+    /* border: 1px solid #e2eaf0; */
+    border-collapse: collapse;
+}
+.rytjlist tbody tr{
+    border-bottom: 1px solid #e5e5e5;
+} 
+.radio_no{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/bg.png") 0px -479px no-repeat;
+    vertical-align: middle;
+}
+.radio_yes{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/bg.png") 0px -514px no-repeat;
+    vertical-align: middle;
+}

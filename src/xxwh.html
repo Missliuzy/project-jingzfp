@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>贫困人员信息维护</title>
+  <link rel="stylesheet" href="./styles/css/common.css">
+  <link rel="stylesheet" href="./styles/css/xxwh.css">
+</head>
+
+<body>
+  <div class="all">
+    <include src="./include/head.html"></include>
+    <div class="drdc w">
+      <span class="tab_dr left bgc">
+        <a href="./xxwh.html">
+          人员信息维护
+        </a>
+      </span>
+      <span class="lr left ">
+        <a href="./index.html">
+          人员信息导入
+        </a>
+      </span>
+      <span class="lr left ">
+        <a href="./report.html">
+          人员统计表
+        </a>
+      </span>
+    </div>
+    <div class="contentnr">
+      <div class="color w"></div>
+      <!-- <div class="content_title">
+                <p>贫困人员信息维护</p>
+            </div> -->
+      <div class="cxtj">
+        <p>查询条件</p>
+      </div>
+      <div class="cxtj_content">
+        <div class="bd_table ">
+          <form name="form_wh" msgtype="2" validate="blur" class="con_font">
+            <table>
+              <tr>
+                <td class="bgtm whhjdz">户籍所在地省（市）</td>
+                <td class="bdxx wh_text">
+                  <input type="text" id="hjszds" disabled class="com_text langin J_same J_hj_select  kg jyszss" placeholder="">
+                  <!-- <select paramete="dcyssjz" id="hjszds" class="kg" valiflag="12,full,户籍所在地省(市),true">
+                                    <option value="">请选择</option>
+                                    </select> -->
+                </td>
+                <td class="bgtm whsfjy">是否就业</td>
+                <td class="bdxx wh_text">
+                  <select id="sfyjy" class="kg">
+                    <option value="">请选择</option>
+                    <option value="1">是</option>
+                    <option value="0">否</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="bgtm whsfz">身份证号码</td>
+                <td class="bdxx wh_text"><input type="text" class="kg sfz com_text" valiflag="18,sfzhm,身份证号码,true"></td>
+                <td class="bgtm whxm">姓名</td>
+                <td class="bdxx wh_text"><input paramete="xm" type="text" class="kg name" valiflag="32,full,姓名,true"></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        <div class="z_btn">
+          <input id="search_btn" type="button" value="查询" class="cxcz_btn" /><input type="reset" class="new_btn cxcz_btn"
+            value="新增" ywcz="1" />
+        </div>
+      </div>
+      <div class="cxjg">
+        <p>查询结果</p>
+      </div>
+      <div class="cxbg" id="tables">
+        <script type="text/html" id="table_center">
+                    <table class="list" cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <td width="7%">序号</td>
+                                <td width="20%">身份证号码</td>
+                                <td width="8%">姓名</td>
+                                <td width="7%">性别</td>
+                                <td width="8%">年龄</td>
+                                <td width="20%">户籍所在地</td>
+                                <td width="10%">是否就业</td>
+                                <td width="10%">就业时间</td>
+                                <td width="10%">操作</td>
+                            </tr>
+                        </thead>
+                        <!-- <script type="text/html" id="table_center"> -->
+                        <tbody>
+                            <%for(var i = 0 ; i<data.length;i++){%>
+                                <%var num=+wrapData.startNum+i%>
+                                    <tr class="<%if((+i+1)%2==0){%>odd<%}else{%>even<%}%>">
+                                        <td width="7%">
+                                            <%=num%>
+                                        </td>
+                                        <td>
+                                            <%=data[i].sfzhm%>
+                                        </td>
+                                        <td width="8%">
+                                            <%=data[i].xm%>
+                                        </td>
+                                        <td>
+                                            <%if(data[i].xb == '1'){%>男
+                                                <%}else if(data[i].xb == '2'){%>女
+                                                    <%}%>
+                                        </td>
+                                        <td>
+                                            <%=data[i].nl%>
+                                        </td>
+                                        <td>
+                                            <%=data[i].hjdxzqhmc%>
+                                        </td>
+                                        <td>
+                                            <%if(data[i].sfyjy == '0'){%>否
+                                                <%}else if(data[i].sfyjy == '1'){%>是
+                                                    <%}%>
+                                        </td>
+                                        <td>
+                                            <%=data[i].jysj%>
+                                        </td>
+                                        <td>
+                                            <%if(data[i].sfyjy == '1'){%><a class="ck" jzfpmcid="<%=data[i].jzfpmcid%>" grbh="<%=data[i].grbh%>">查看</a>
+                                                <%}else if(data[i].sfyjy == '0'){%><a class="wh" jzfpmcid="<%=data[i].jzfpmcid%>" grbh="<%=data[i].grbh%>" ywcz="2">维护</a>
+                                                    <%}%>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                        </tbody>
+                    </table>
+                </script>
+      </div>
+      <div id="pagination-tables"></div>
+    </div>
+    <include src="./include/foot.html"></include>
+  </div>
+  <script src="./common/vendor.js"></script>
+  <script src="./common/generaltools.js"></script>
+  <script src="./common/levelPlugin.js"></script>
+  <script src="./common/validator.js"></script>
+  <script src="./common/public.js"></script>
+  <script src="./common/common.js"></script>
+  <script>
+    $(function () {
+      var loading = new $.Loading();
+      //  // 就业户籍行政区划代码获取
+      // $.ajax({
+      //         beforeSend: function() {},
+      //         url: '../common/jzfpxzqh.json'
+      //     }).done(function (res) {
+      //         $('.J_hj_select').pull(res);
+      //     });
+      // 新增
+      $(document).on('click', '.new_btn', function () {
+        window.location.href = './xxcj.html?ywcz=' + $(this).attr('ywcz');
+      });
+      // 点击查看
+      $(document).on('click', '.ck', function () {
+        window.location.href = './xxcj.html?grbh=' + $(this).attr('grbh') + '&jzfpmcid=' + $(this).attr('jzfpmcid');
+      });
+      // 点击维护
+      $(document).on('click', '.wh', function () {
+        window.location.href = './xxcj.html?grbh=' + $(this).attr('grbh') + '&jzfpmcid=' + $(this).attr('jzfpmcid') + '&ywcz=' + $(this).attr('ywcz');
+      });
+      // 查询分页显示
+      function Xssj() {
+        loading.on();
+        var hjdzid = sessionStorage.getItem('xzqhid');
+        // if (sfyjy) {
+        //     var sfyjy = $("#sfyjy").val();
+        // } else {
+        //     var sfyjy = '';
+        // }
+        var sfyjy = '';
+        if ($("#sfyjy").find("option:selected").text() == "是") {
+          sfyjy = "1"
+        } else if ($("#sfyjy").find("option:selected").text() == "否") {
+          sfyjy = "0"
+        } else {
+          sfyjy = ""
+        };
+        var index = 1;
+        $("#tables").pageTool({
+          url: "/jzfp/jzfpryCx",
+          type: "get",
+          data: {
+            pageSize: "10",
+            pageNum: index,
+            hjdxzqh: hjdzid,
+            sfyjy: sfyjy,
+            sfzhm: $(".sfz").val(),
+            xm: $(".name").val(),
+          },
+          locator: "returnData.jzfprylb",
+          callback: function (result) {
+            loading.off();
+            if (result.returnData.executeResult == "1") {
+              index++;
+            } else {
+              $.layerMsg(result.returnData.message, "确定");
+            }
+          },
+          error: function () {
+            loading.off();
+          }
+        })
+      }
+      // getItem获取value
+      $('#hjszds').val(sessionStorage.getItem('xzqhmc'))
+      $('#hjszds').attr('hjdzid', sessionStorage.getItem('xzqhid'))
+      Xssj();
+      // 点击查询
+      $('#search_btn').click(function () {
+        if (!validate('form_wh')) return false;
+        Xssj();
+      })
+    })
+  </script>
+</body>
+
+</html>

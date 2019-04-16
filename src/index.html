@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>贫困人员信息导入</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./styles/css/common.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./styles/css/lzy.css"
+    />
+    <!-- <script src="./common/date/"></script> -->
+    <style></style>
+  </head>
+  <body>
+      <include src="./include/head.html"></include>
+      <div class="content">
+        <div class="content_c w">
+            <div class="drdc w">
+                <span class="tab_dr left">
+                  <a href="./xxwh.html">
+                    人员信息维护
+                  </a>
+                </span>
+                <span class="lr left bgc">
+                   <a href="./index.html">
+                    人员信息导入
+                  </a>
+                </span>
+                <span class="lr left ">
+                  <a href="./report.html">
+                    人员统计表
+                  </a>
+                </span>
+            </div>
+          <div class="color w"></div>
+          <div class="cxtj">
+            <div class="left">查询条件</div>
+            <div class="right"><img src="./styles/images/mb.png" alt=""><a class="down" href="./styles/精准扶贫人员信息导入.xls">导入模板下载</a></div>
+          </div>
+          <div class="bd_table clearfix">
+            <div class="clearfix heigh">
+              <div class="bgtm left">户籍所在地省（市）</div>
+              <div class="bdxx left">
+                <input
+                  type="text"
+                  class="langin J_same J_hj_select kg"
+                  paramete="xghlxdz"
+                  disabled = true
+                  placeholder="请输入联系地址"
+                />
+              </div>
+              <div class="bgtm_rq">导入日期</div>
+              <!-- 开始 -->
+              <input
+                id="start_time_name"
+                type="text"
+                paramete="btqsy"
+                class="rq_ks left"
+                name="start_time_name"
+                onclick="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd ',maxDate:'#F{$dp.$D(\'end_time_name\')||\'%y-%M-%d\'}',minDate:'#F{$dp.$D(\'end_time_name\',{d:-29})}'})"
+              />
+              <span class="left span">-</span>
+              <!-- 结束 -->
+              <input
+                id="end_time_name"
+                type="text"
+                paramete="btqsy"
+                class="rq_js left"
+                name="end_time_name"
+                onclick=" WdatePicker({
+                  readOnly:true,
+                  dateFmt:'yyyy-MM-dd ',
+                  minDate:'#F{$dp.$D(\'start_time_name\')}',
+                  maxDate:'#F{\'%y-%M-%d\'}'
+              });"
+              />
+              <div class="border left">
+                  <label for="label_file">
+                    <div class="J_upload_div">
+                      <span class="upload J_upload">请选择导入文件
+                      </span>
+                    </div>
+                  </label>
+                  <input
+                    class="replyFileid left"
+                    type="file"
+                    accept=".xls,.xlms"
+                    id="label_file"
+                  />
+                  <!-- <img src="./styles/images/wjj.png" class="file_img" alt=""> -->
+                    <span class="drbtn">导入</span>
+                </a>
+              </div>
+            </div>
+            <div class="cx">
+              <button class="cxcz_btn">查询</button>
+            </div>
+          </div>
+          <div class="cxtj">
+            <div class="left">查询结果</div>
+          </div>
+          <div class="cxbg" id="Detail">
+            <script type="text/html" id="Temp">
+            <table class="list" cellpadding="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <td width="10%">序号</td>
+                  <td width="20%">导入日期</td>
+                  <td width="15%">成功人数</td>
+                  <td width="15%">失败人数</td>
+                  <td width="20%">导入机构</td>
+                  <td width="10%">操作</td>
+                </tr>
+              </thead>
+              <tbody>
+                    <%for(var i=0;i < data.length; i++){ %>
+                      <%var num=+wrapData.startNum+i%>
+                    <tr>
+                      <td><%=num%></td>
+                      <td><%=data[i].drsj%></td>
+                      <td><%=data[i].cgrc%></td>
+                      <td><%=data[i].sbrc%></td>
+                      <td><%=data[i].drzj%></td>
+                      <td><span class="J_cz" pch="<%=data[i].pch%>">查看</span></td>
+                    </tr>
+                  <%}%>
+              </tbody>
+            </table>
+          </script>
+          </div>
+          <div id="pagination-Detail"></div>
+        </div>
+      </div>
+      <include src="./include/foot.html"></include>
+  </body>
+  <!-- jq -->
+  <script src="./common/vendor.js"></script>
+  <!-- 校验 -->
+  <script src="./common/validator.js"></script>
+  <!-- 时间 -->
+  <script src="./common/date/WdatePicker.js"></script>
+  <!-- 方法 -->
+  <script src="./common/common.js"></script>
+  <script src="./common/levelPlugin.js"></script>
+  <script src="./common/public.js"></script>
+   <!-- 分页 -->
+   <script src="./common/generaltools.js"></script>
+  <script>
+    var $this_file='';
+    $(function() {
+      var loading = new $.Loading();
+      // 户籍行政区划代码获取
+      // $.ajax({
+      //   beforeSend: function() {},
+      //   url: "./common/jzfpxzqh.json"
+      // }).done(function(res) {
+      //   $(".J_hj_select").pull(res);
+      // });
+      // 点击查看 跳转
+      $(document).on("click", ".J_cz", function() {
+        window.location.href =
+          "./ck.html?pch=" +
+          $(this).attr("pch")
+      });
+      // 获取地区名称
+      var session_id = sessionStorage.getItem("xzqhid")
+      var session_mc = sessionStorage.getItem("xzqhmc")
+      // 分页显示
+      var index = 1;
+      var xglx = "";
+      var data= {
+          pageSize: "10",
+          pageNum: index,
+          hjdxzqh: session_id,
+          drsjq: '',
+          drsjz: ''
+        }
+      function search(data){
+        loading.on()
+        $("#Detail").pageTool({
+        url: "/jzfp/jzfpryDrCx",
+        type: "get",
+        data: data,
+        locator: "returnData.jzfpryDrCx",
+        callback: function(result) {
+          loading.off()
+          if (result.returnData.executeResult == "1") {
+            index++;
+            // 分页奇偶变色
+            $("tbody tr:odd").addClass("odd");
+            $("tbody tr:even").addClass("even");
+            $("tbody tr").hover(function(){
+                $(this).removeClass("a").addClass("b");
+            },function(){
+                $(this).removeClass("b").addClass("a");
+            });
+          } else {
+            $.layerMsg(result.returnData.message, "确定");
+          }
+        },
+        error: function(){
+          loading.off()
+        }
+      });
+      }
+      search(data)
+      // 查询列表
+      $(document).on('click','.cxcz_btn',function(){
+        // 注册地址
+        // var zcdzData = $('.J_hj_select').data('data');
+        // if (zcdzData != undefined) {
+        //   var zcdzid = zcdzData.id;
+        //   data.hjdxzqh = zcdzid
+        // }else{
+        //   data.hjdxzqh =''
+        // }
+        data.hjdxzqh = session_id
+        // 时间
+        data.drsjq = $('.rq_ks').val()
+        data.drsjz = $('.rq_js').val()
+        search(data)
+      })
+      // 结束时间：初始默认最大日期为今天
+      $(function() {
+        // 设置结束时间的最大可取值为today
+        $("#end_time_id").unbind("click");
+        $("#end_time_id").bind("click", function() {
+          WdatePicker({
+            readOnly: true,
+            dateFmt: "yyyy-MM-dd ",
+            minDate: "#F{$dp.$D('start_time_id')}",
+            maxDate: "#F{'%y-%M-%d'}"
+          });
+        });
+      });
+      // 开始时间值改变时,改变结束时间值得范围
+      function setEndTimeDurationWhileStartTimeChange() {
+        var start = $("#start_time_id").val(); // 格式：2017-05-01
+        // 如果选中了开始时间
+        if (start != "" && start != null) {
+          // endMaxDate = 开始时间+29天
+          start = start.replace(/-/g, "/");
+          var endMaxDate = new Date(start);
+          endMaxDate.setDate(endMaxDate.getDate() + 29);
+
+          // today = 今天
+          var today = new Date();
+          today.setHours(0);
+          today.setMinutes(0);
+          today.setSeconds(0);
+          today.setMilliseconds(0);
+
+          // 如果endMaxDate>today
+          if (endMaxDate.getTime() > today.getTime()) {
+            // 设置结束时间的最大可取值为today
+            $("#end_time_id").unbind("click");
+            $("#end_time_id").bind("click", function() {
+              WdatePicker({
+                readOnly: true,
+                dateFmt: "yyyy-MM-dd ",
+                minDate: "#F{$dp.$D('start_time_id')}",
+                maxDate: "#F{'%y-%M-%d'}"
+              });
+            });
+          } else {
+            // 设置结束时间的最大可取值为endMaxDate
+            $("#end_time_id").unbind("click");
+            $("#end_time_id").bind("click", function() {
+              WdatePicker({
+                readOnly: true,
+                dateFmt: "yyyy-MM-dd ",
+                minDate: "#F{$dp.$D('start_time_id')}",
+                maxDate: "#F{$dp.$D('start_time_id',{d:29})}"
+              });
+            });
+          }
+        }
+        // 如果清空了开始时间,重设结束时间的范围,到今天为止
+        else {
+          // 设置结束时间的最大可取值为today
+          $("#end_time_id").unbind("click");
+          $("#end_time_id").bind("click", function() {
+            WdatePicker({
+              readOnly: true,
+              dateFmt: "yyyy-MM-dd ",
+              minDate: "#F{$dp.$D('start_time_id')}",
+              maxDate: "#F{'%y-%M-%d'}"
+            });
+          });
+        }
+      }
+      // 导入功能
+      //获取选中文件的路径名
+      function getName(){
+        var _names = $('.replyFileid')[0].value;
+          if (_names !== '') {
+            $(".upload").html(_names);
+          } else {
+            $('.upload').text('请选择导入文件');
+          }
+      }
+    $(document).on("change", ".replyFileid", function(e) {
+      // $(".upload").html('')
+      // $this_file = $(e.currentTarget);
+      $this_file = $(this);
+      getName()
+    });
+    // 点击提交导入文件
+    $('body').on('click', '.drbtn', function() {
+      var fileName=$(".replyFileid").val();
+      var fileType =fileName.substring(fileName.lastIndexOf("."))
+      if (fileName == '') {
+        $.layerMsg('请选择导入文件','确定')
+        return false
+      }
+      if(fileType != ".xlms" && fileType != ".xls"){
+        $.layerMsg('只能选择.xls和.xlms文件','确定')
+        return false;
+      }
+      $.layerMsg('是否导入？', [{text: '确定', cb: function () {
+        uploadImgAndPreview($this_file)
+      }}, {text: '取消',cb:function(){
+        // $('.replyFileid').val('');
+        // $('.upload').html('请选择导入文件');
+      }}]);
+    })
+    function uploadImgAndPreview($el) {
+      loading.on()
+      $el.upload({
+        action: conf.urlPrefix + "/jzfp/jzfpryDrBc1",
+        success: function(result) {
+          loading.off()
+          var resData = result.returnData;
+          if (resData.executeResult == "1" ) {
+            $.layerMsg(result.returnData.message, "确定",function(){
+              window.history.go(0);
+            });
+          }
+        },
+        error:function(err){
+          loading.off()
+          $.layerMsg(err, "确定");
+        }
+      }).then(function(obj){
+      },function(err){
+        loading.off()
+      });
+    }
+    });
+
+  </script>
+</html>

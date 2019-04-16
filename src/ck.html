@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>导入信息查询</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./styles/css/common.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./styles/css/lzy.css"
+    />
+  </head>
+  <body>
+    <include src="./include/head.html"></include>
+    <div class="drdc w">
+        <span class="tab_dr left">
+          <a href="./xxwh.html">
+            人员信息维护
+          </a>
+        </span>
+        <span class="lr left bgc">
+           <a href="./index.html">
+            人员信息导入
+          </a>
+        </span>
+        <span class="lr left ">
+          <a href="./report.html">
+            人员统计表
+          </a>
+        </span>
+    </div>
+    <div class="content">
+      <div class="content_c w">
+        <div class="color w"></div>
+        <div class="cxtj">
+          <div class="left">人员信息</div>
+        </div>
+        <div class="">
+          <div class="cxbg" id="Detail">
+            <script type="text/html" id="Temp">
+            <table class="list" cellpadding="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <td>序号</td>
+                  <td>身份证号码</td>
+                  <td>姓名</td>
+                  <td>性别</td>
+                  <td>户籍地行政区划</td>
+                  <td>手机号码</td>
+                  <td>固定电话</td>
+                  <td>是否就业</td>
+                  <td>就业意愿</td>
+                  <td>就业地区</td>
+                  <td>是否成功</td>
+                  <td>失败原因</td>
+                </tr>
+              </thead>
+              <tbody>
+               
+                  <% for(var i=0;i < data.length; i++){ %>
+                    <%var num=+wrapData.startNum+i%>
+                    <tr>
+                      <td style="width:40px;word-wrap:break-word;word-break:break-all"><%=num%></td>
+                      <td style="width:200px;word-wrap:break-word;word-break:break-all"><%=data[i].sfzhm%></td>
+                      <td style="width:100px;word-wrap:break-word;word-break:break-all"><%=data[i].xm%></td>
+                      <td style="width:40px;word-wrap:break-word;word-break:break-all"><%=data[i].xb%></td>
+                      <td style="width:160px;word-wrap:break-word;word-break:break-all"><%=data[i].hjdxzqh%></td>
+                      <td style="width:140px;word-wrap:break-word;word-break:break-all"><%=data[i].sjh%></td>
+                      <td style="width:200px;word-wrap:break-word;word-break:break-all"><%=data[i].gddh%></td>
+                      <td style="width:90px;word-wrap:break-word;word-break:break-all"><%=data[i].sfyjy%></td>
+                      <td style="width:90px;word-wrap:break-word;word-break:break-all"><%=data[i].jyyy%></td>
+                      <td style="width:90px;word-wrap:break-word;word-break:break-all"><%=data[i].jydq%></td>
+                      <td style="width:90px;word-wrap:break-word;word-break:break-all"><%=data[i].sfcg%></td>
+                      <td style="width:90px;word-wrap:break-word;word-break:break-all"><%=data[i].sbyy%></td>
+                    </tr>
+                  <% }%>
+                
+              </tbody>
+            </table>
+          </script>
+          </div>
+
+          <div id="pagination-Detail"></div>
+        </div>
+        <div class="back"><button class="goBack">返回</button></div>
+      </div>
+    </div>
+    <include src="./include/foot.html"></include>
+  </body>
+  <!-- jq -->
+  <script src="./common/vendor.js"></script>
+  <!-- 校验 -->
+  <script src="./common/validator.js"></script>
+  <!-- 分页 -->
+  <script src="./common/generaltools.js"></script>
+  <!-- 时间 -->
+  <script src="./common/date/WdatePicker.js"></script>
+  <!-- 方法 -->
+  <script src="./common/common.js"></script>
+  <script src="./common/levelPlugin.js"></script>
+  <script src="./common/public.js"></script>
+
+  <script>
+    $(function() {
+      var loading = new $.Loading();
+      var paramObj = $.paramObj();
+      // 分页显示
+      var index = 1;
+      var xglx = "";
+        loading.on()
+      $("#Detail").pageTool({
+        url: "/jzfp/jzfpryDrlbCx",
+        type: "get",
+        data: {
+          pageSize: "10",
+          pageNum: index,
+          pch: paramObj.pch,
+        },
+        locator: "returnData.jzfpryDrlbCx",
+        callback: function(result) {
+        loading.off()
+          if (result.returnData.executeResult == "1") {
+            index++;
+          } else {
+            $.layerMsg(result.returnData.message, "确定");
+          }
+        },
+        error: function(){
+          loading.off()
+        }
+      });
+      $(document).on('click','.goBack',function(){
+        window.history.back(-1);
+      })
+    });
+  </script>
+</html>

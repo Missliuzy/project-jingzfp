@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贫困人员信息维护</title>
+    <link rel="stylesheet" href="./styles/css/common.css">
+    <link rel="stylesheet" href="./styles/css/xxwh.css">
+
+</head>
+
+<body>
+    <div class="all">
+        <include src="./include/head.html"></include>
+        <div class="contentnrbg">   
+            <p class="rytjtitle">精准扶贫人员统计表</p>           
+            <p class="rytjrq">(2019年3月20日----2020年8月8日)</p>     
+            <div class="cxbg" id="rytjTable"> 
+                <p class="clearfix tablebz">                   
+                    <span class="tjjg">统计机构：</span>      
+                    <span class="danwei">单位：人次</span>
+                </p>
+                <!-- <script type="text/html" id="rytjbg"> -->
+                    <table class="rytjlist"  border="1" >
+                        <thead>
+                            <tr>
+                                <td rowspan="3" width="7%"></td>
+                                <td rowspan="3" width="10%"></td>
+                                <td rowspan="3" width="7%">总数</td>
+                                <td colspan="4" width="52%">已就业人数</td>   
+                                <td colspan="3" width="24%">未就业且有就业意愿人数</td>                           
+                            </tr>
+                            <tr>    
+                                <td rowspan="2"></td>                           
+                                <td rowspan="2">就业就近就业人数</td>
+                                <td colspan="2">外出务工人数</td>
+                                <td rowspan="2"> </td>
+                                <td rowspan="2">就业就近就业人数</td>
+                                <td rowspan="2">外出就业</td>
+                            </tr>
+                            <tr>                               
+                                <td >在京务工人数</td>
+                                <td >其他地区务工人数</td>
+                            </tr>
+                        </thead>
+                    
+                        <tbody>
+                            <!-- <%for(var i = 0 ; i<beijing.length;i++){%>
+                                <%for(var j = 0 ; j<beijing[i].dongcqu.length;i++){%>
+                                        <%for(var k = 0 ; k<beijing[i].dongcqu[j].length;i++){%>
+                                        <tr>
+                                            <td rowspan="k" width="15%">
+                                                <%=beijing[i].dongcqu%>
+                                            </td>  
+                                            <td width="15%">
+                                                <%=xian[k]%>
+                                            </td> 
+                                            <td width="15%"></td> 
+                                            <td width="15%"></td>
+                                            <td width="15%"> 张家口登录就业地行政区划是张家口及以下级别</td> 
+                                            <td width="15%">就业地行政区划是北京的</td>
+                                            <td width="15%">张家口登录就业地行政区划是（张家口及以下级别）以外</td>
+                                            <td width="15%"></td> 
+                                            <td width="15%"></td>
+                                            <td width="15%"></td> 
+                                        </tr>
+                                    <%}%>
+                                <%}%> 
+                            <%}%> -->
+                        </tbody>
+                    </table>
+                <!-- </script> -->
+            </div>
+        </div>
+        <include src="./include/foot.html"></include>
+    </div>
+    <script src="./common/vendor.js"></script>
+    <script src="./common/generaltools.js"></script>
+    <script src="./common/levelPlugin.js"></script>
+    <script src="./common/validator.js"></script>
+    <script src="./common/public.js"></script>
+    <script src="./common/common.js"></script>
+    <script>
+        $(function () {
+            // $.asyncRender({
+            //         url: '/jzfp/jzfpryxxCx',
+            //         type: 'get',
+            //         data: {
+            //             grbh: grbh,
+            //             jzfpmcid: jzfpmcid
+            //         },
+            //         pos: 'returnData.jzfpryXx',
+            //         tem: '#rytjbg',
+            //         wrap: '#rytjTable'
+            //     }).done(function (result) {
+
+            //     }).always(function () {
+            //         loading.off()
+            //     });
+        }) 
+    </script>
+</body>
+
+</html>

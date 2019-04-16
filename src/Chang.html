@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>贫困人员信息导入</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./styles/css/common.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="./styles/css/lzy.css"
+    />
+    <!-- <script src="./common/date/"></script> -->
+    <style></style>
+  </head>
+  <body>
+    <include src="./include/head.html"></include>
+    <div class="w chang_gmm" style="height: 560px;">
+      <form name="form_ps" msgtype="2" validate="blur" class='form_ps'>
+        <div class="chang_login">
+          <!-- <a class="xgmm_back" href="./xxwh.html"><返回首页</a> -->
+          <p class="xgmm_tit">修改密码</p>
+          <div class="ms_login">
+            <div class="itemi">
+              <div class="itemi_content" style="margin-left: 0px;">
+                <div class="item_input">
+                  <label class="passes Showpass" for="sjh"
+                    >请输入手机号码</label
+                  >
+                  <input
+                    type="text"
+                    class="item_inner pla_text"
+                    id="sjh"
+                    maxlength="11"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="itemi">
+              <div class="itemi_content" style="margin-left: 0px;">
+                <div class="item_input wxd">
+                  <label class="passes Showpass" for="mm">请输入原密码</label>
+                  <input
+                    type="password"
+                    value=""
+                    class="item_inner pla_text"
+                    id="mm"
+                    maxlength="16"
+                    valiflag="16,full,原密码,6"
+                    v_require
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="itemi">
+              <div class="itemi_content" style="margin-left: 0px;">
+                <div class="item_input wxd">
+                  <label class="passes Showpass" for="xmm">请输入新密码</label>
+                  <input
+                    type="password"
+                    value=""
+                    class="item_inner yzm txyzm pla_text"
+                    id="xmm"
+                    maxlength="16"
+                    valiflag="16,full,新密码,6"
+                    v_require
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="itemi">
+              <div class="itemi_content" style="margin-left: 0px;">
+                <div class="item_input wxd">
+                  <label class="passes Showpass" for="qrmm"
+                    >请确认密码</label
+                  >
+                  <input
+                    type="password"
+                    value=""
+                    class="item_inner yzm sjyzm pla_text"
+                    id="qrmm"
+                    maxlength="16"
+                    valiflag="16,full,确认密码,6"
+                    v_require
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="login_btn">
+              <button class="butt left xgmm_btn J_back" type="button">返回</button>
+              <button class="butt right J_xgmm  xgmm_btn" type="button">提交</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <include src="./include/foot.html"></include>
+  </body>
+  <script src="./common/vendor.js"></script>
+  <script src="./common/common.js"></script>
+  <script src="./common/md5_32.js"></script>
+  <script src="./common/public.js"></script>
+  <script src="./common/validator.js"></script>
+  <script src="./common/textchange.js"></script>
+  <script>
+    $(function() {
+      var loading = new $.Loading();
+      // 获取手机号
+      var sjh = sessionStorage.getItem("sjh");
+      $("#sjh").val(sjh);
+      if ($("#sjh").val() != "") {
+        $("#sjh")
+          .prev(".passes")
+          .hide();
+      }
+      // 返回
+      $("body").on("click", ".J_back", function() {
+        window.history.back(-1);
+      });
+      // 提示文字
+      $("body").on("textchange", ".pla_text", function() {
+        if ($(this).val().length > 0 ) {
+          $(this)
+          .prev(".Showpass")
+          .hide();
+        }else if ($(this).val() == ''){
+          $(this)
+            .prev(".Showpass")
+            .show();
+        }
+      });
+      $("body").on("blur", ".pla_text", function() {
+        if ($(this).val() == "") {
+          $(this)
+            .prev(".Showpass")
+            .show();
+        } else {
+          $(this)
+            .prev(".Showpass")
+            .hide();
+        }
+      });
+      // 手机号码失焦事件
+      $(document).on("blur", "#sjh", function() {
+        if ($("#sjh").val() == "") {
+          $.layerMsg("请输入手机号码", "确定");
+          return false;
+        }
+        var reg = /^1\d{10}$/;
+        if (reg.test($("#sjh").val())) {
+          return false;
+        } else {
+          $.layerMsg("请正确手机号码", "确定");
+        }
+      });
+      // 点击确定修改 跳转
+      $(document).on("click", ".J_xgmm", function() { 
+        if(!validate('form_ps')) return false;
+        if ($("#xmm").val() === $("#qrmm").val()) {
+          var login = {
+            sjh: $("#sjh").val(),
+            // mm: calcMD5($("#mm").val()),
+            mm: $("#mm").val(),
+            xmm: $("#xmm").val(),
+            qrmm: $("#qrmm").val()
+          };
+          $.layerMsg("是否提交", [
+            {
+              text: "确定",
+              cb: function() {
+                loading.on();
+                $.fetch({
+                  url: "/login/mmXg",
+                  type: "post",
+                  data: login
+                })
+                  .done(function(result) {
+                    var data = result.returnData;
+                    if (data.executeResult == "1") {
+                      loading.off();
+                      $.layerMsg(data.message, "我知道了",function(){
+                        window.location.href = "./login.html?sjh=" + $("#sjh").val();
+                      });
+                    } else {
+                      $.layerMsg(data.message, "我知道了");
+                    }
+                  })
+                  .always(function() {
+                    loading.off();
+                  });
+              }
+            },
+            { text: "取消",cb:function(){
+              return false;
+            } }
+          ]);
+        } else {
+          $.layerMsg("两次输入密码不一致", "确定");
+        }
+      });
+      // 回车登录
+      document.onkeydown = function(e) {
+        // 事件对象的兼容处理
+        var eventa = e || window.event;
+        var enter_code = eventa.keyCode;
+        if (enter_code == 13) {
+          $(".J_xgmm").click();
+        }
+      };
+    });
+  </script>
+</html>

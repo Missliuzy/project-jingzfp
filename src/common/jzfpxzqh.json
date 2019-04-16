@@ -1,0 +1,132 @@
+[
+  {
+    "id": "130000000000",
+    "name": "河北省",
+    "children": [
+      {
+        "id": "130600000000",
+        "name": "保定市",
+        "children": [
+          { "id": "130623000000", "name": "涞水县", "children": null },
+          { "id": "130624000000", "name": "阜平县", "children": null },
+          { "id": "130627000000", "name": "唐县", "children": null },
+          { "id": "130630000000", "name": "涞源县", "children": null },
+          { "id": "130631000000", "name": "望都县", "children": null },
+          { "id": "130633000000", "name": "易县", "children": null },
+          { "id": "130634000000", "name": "曲阳县", "children": null },
+          { "id": "130636000000", "name": "顺平县", "children": null }
+        ]
+      },
+      {
+        "id": "130700000000",
+        "name": "张家口市",
+        "children": [
+          { "id": "130705000000", "name": "张家口市宣化区", "children": null },
+          { "id": "130708000000", "name": "张家口市万全区", "children": null },
+          { "id": "130722000000", "name": "张北县", "children": null },
+          { "id": "130723000000", "name": "康保县", "children": null },
+          { "id": "130724000000", "name": "沽源县", "children": null },
+          { "id": "130725000000", "name": "尚义县", "children": null },
+          { "id": "130726000000", "name": "蔚县", "children": null },
+          { "id": "130727000000", "name": "阳原县", "children": null },
+          { "id": "130728000000", "name": "怀安县", "children": null },
+          { "id": "130730000000", "name": "怀来县", "children": null },
+          { "id": "130731000000", "name": "涿鹿县", "children": null },
+          { "id": "130732000000", "name": "赤城县", "children": null },
+          { "id": "130733000000", "name": "崇礼县", "children": null }
+        ]
+      },
+      {
+        "id": "130800000000",
+        "name": "承德市",
+        "children": [
+          { "id": "130824000000", "name": "滦平县", "children": null },
+          { "id": "130826000000", "name": "丰宁满族自治县", "children": null }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "150000000000",
+    "name": "内蒙古自治区",
+    "children": [
+      {
+        "id": "150100000000",
+        "name": "呼和浩特市",
+        "children": [
+          { "id": "150125000000", "name": "武川县", "children": null }
+        ]
+      },
+      {
+        "id": "150400000000",
+        "name": "赤峰市",
+        "children": [
+          { "id": "150421000000", "name": "阿鲁科尔沁旗", "children": null },
+          { "id": "150422000000", "name": "巴林左旗", "children": null },
+          { "id": "150423000000", "name": "巴林右旗", "children": null },
+          { "id": "150424000000", "name": "林西县", "children": null },
+          { "id": "150426000000", "name": "翁牛特旗", "children": null },
+          { "id": "150428000000", "name": "喀喇沁旗", "children": null },
+          { "id": "150429000000", "name": "宁城县", "children": null },
+          { "id": "150430000000", "name": "敖汉旗", "children": null }
+        ]
+      },
+      {
+        "id": "150500000000",
+        "name": "通辽市",
+        "children": [
+          { "id": "150521000000", "name": "科尔沁左翼中旗", "children": null },
+          { "id": "150522000000", "name": "科尔沁左翼后旗", "children": null },
+          { "id": "150524000000", "name": "库伦旗", "children": null },
+          { "id": "150525000000", "name": "奈曼旗", "children": null }
+        ]
+      },
+      {
+        "id": "150700000000",
+        "name": "呼伦贝尔市",
+        "children": [
+          {
+            "id": "150722000000",
+            "name": "莫力达瓦达斡尔族自治旗",
+            "children": null
+          },
+          { "id": "150723000000", "name": "鄂伦春自治旗", "children": null }
+        ]
+      },
+      {
+        "id": "150900000000",
+        "name": "乌兰察布市",
+        "children": [
+          { "id": "150921000000", "name": "卓资县", "children": null },
+          { "id": "150922000000", "name": "化德县", "children": null },
+          { "id": "150923000000", "name": "商都县", "children": null },
+          { "id": "150924000000", "name": "兴和县", "children": null },
+          { "id": "150926000000", "name": "察哈尔右翼前旗", "children": null },
+          { "id": "150927000000", "name": "察哈尔右翼中旗", "children": null },
+          { "id": "150928000000", "name": "察哈尔右翼后旗", "children": null },
+          { "id": "150929000000", "name": "四子王旗", "children": null }
+        ]
+      },
+      {
+        "id": "152200000000",
+        "name": "兴安盟",
+        "children": [
+          { "id": "152202000000", "name": "阿尔山市", "children": null },
+          { "id": "152221000000", "name": "科尔沁右翼前旗", "children": null },
+          { "id": "152222000000", "name": "科尔沁右翼中旗", "children": null },
+          { "id": "152223000000", "name": "扎赉特旗", "children": null },
+          { "id": "152224000000", "name": "突泉县", "children": null }
+        ]
+      },
+      {
+        "id": "152500000000",
+        "name": "锡林郭勒盟",
+        "children": [
+          { "id": "152524000000", "name": "苏尼特右旗", "children": null },
+          { "id": "152527000000", "name": "太仆寺旗", "children": null },
+          { "id": "152529000000", "name": "正镶白旗", "children": null }
+        ]
+      }
+    ]
+  }
+]

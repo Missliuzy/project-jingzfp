@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>人员统计表</title>
+  <link rel="stylesheet" href="./styles/css/common.css">
+  <link rel="stylesheet" href="./styles/css/report.css">
+  <style></style>
+</head>
+
+<body>
+  <include src="./include/head.html"></include>
+  <div class="content">
+    <div class="content_c w">
+      <div class="drdc w">
+        <span class="tab_dr left">
+          <a href="./xxwh.html">
+            人员信息维护
+          </a>
+        </span>
+        <span class="lr left">
+          <a href="./index.html">
+            人员信息导入
+          </a>
+        </span>
+        <span class="lr left bgc">
+          <a href="./report.html">
+            人员统计表
+          </a>
+        </span>
+      </div>
+      <!-- 报表 -->
+      <div class="report_con" id="detailWrap">
+        <script type="text/html" id="detailItem">
+          <%if(data.executeResult == 1){%>
+            <% var _vb = data.vb%>
+            <% var _xzqh = data.xzqh%>
+            <div class="report_title">
+              <h1>精准扶贫人员统计表</h1>
+              <span class="J_lcw">另存为Excel</span>
+              <p class="title_time">(<%=_vb.kssj%>----<%=_vb.jssj%>)</p>
+              <div class="title_jg clearfix">
+                <span class="left">统计机构：<%=_vb.tjjg%></span>
+                <span class="right">单位：人次</span>
+              </div>
+            </div>
+            <div class="report_center">
+              <table border="0" cellspacing="0" cellpadding="0" class="table" width="100%" align="center">
+                <tr>
+                  <td width="10%" rowspan="3">市</td>
+                  <td width="10%" rowspan="3">区县</td>
+                  <td width="10%" rowspan="3">总数</td>
+                  <td width="40%" colspan="4" class="nBorderBottom">已就业人数</td>
+                  <td width="30%" colspan="3" class="nBorderBottom">未就业且有就业意愿人数</td>
+                </tr>
+                <tr>
+                  <td rowspan="2" width="7%" class="nBorderTop"></td>
+                  <td rowspan="2" width="13%">就地就近就业人数</td>
+                  <td colspan="2" width="20%">外出务工人数</td>
+                  <td rowspan="2" width="7%" class="nBorderTop"></td>
+                  <td rowspan="2" width="13%">就地就近就业人数</td>
+                  <td rowspan="2" width="10%">外出就业</td>
+                </tr>
+                <tr>
+                  <td>在京务工人数</td>
+                  <td>其他地区务工人数</td>
+                </tr>
+                <%for(var i=0;i<_xzqh.length;i++){%>
+                  <tr>
+                    <td rowspan="<%=_xzqh[i].children.length%>"><%=_xzqh[i].name%></td>
+                    <td><%=_xzqh[i].children[0].name%></td>
+                    <td><%=_xzqh[i].children[0].zs%></td>
+                    <td><%=_xzqh[i].children[0].yjys%></td>
+                    <td><%=_xzqh[i].children[0].yjyjjs%></td>
+                    <td><%=_xzqh[i].children[0].zjs%></td>
+                    <td><%=_xzqh[i].children[0].qts%></td>
+                    <td><%=_xzqh[i].children[0].wjys%></td>
+                    <td><%=_xzqh[i].children[0].wjyjjs%></td>
+                    <td><%=_xzqh[i].children[0].wcs%></td>
+                  </tr>
+                  <%if(_xzqh[i].children && _xzqh[i].children.length>1){%>
+                    <%for(var j=1;j<_xzqh[i].children.length;j++){%>
+                      <% var _item = _xzqh[i].children[j]%>
+                  <tr>
+                    <td><%=_item.name%></td>
+                    <td><%=_item.zs%></td>
+                    <td><%=_item.yjys%></td>
+                    <td><%=_item.yjyjjs%></td>
+                    <td><%=_item.zjs%></td>
+                    <td><%=_item.qts%></td>
+                    <td><%=_item.wjys%></td>
+                    <td><%=_item.wjyjjs%></td>
+                    <td><%=_item.wcs%></td>
+                  </tr>
+                    <%}%>
+                  <%}%>
+                <%}%>
+                <tr>
+                  <td>合计</td>
+                  <td></td>
+                  <td><%=_vb.zshj%></td>
+                  <td><%=_vb.yjyshj%></td>
+                  <td><%=_vb.yjyjjshj%></td>
+                  <td><%=_vb.zjshj%></td>
+                  <td><%=_vb.qtshj%></td>
+                  <td><%=_vb.wjyshj%></td>
+                  <td><%=_vb.wjyjjshj%></td>
+                  <td><%=_vb.wcshj%></td>
+                </tr>
+              </table>
+            </div>
+          <%}%>
+        </script>
+      </div>
+    </div>
+  </div>
+  <include src="./include/foot.html"></include>
+</body>
+<!-- jq -->
+<script src="./common/vendor.js"></script>
+<!-- 方法 -->
+<script src="./common/common.js"></script>
+<script src="./common/public.js"></script>
+<script>
+  $(function () {
+    var loading = new $.Loading();
+    init();
+    function init() {
+      loading.on();
+      $.asyncRender({
+        url: '/jzfp/jzfpbb',
+        type: 'get',
+        pos: 'returnData',
+        tem: '#detailItem',
+        wrap: '#detailWrap'
+      }).done(function (res) {
+        var _res = res.returnData;
+        if (_res.executeResult == '1') {
+        } else {
+          $.layerMsg(_res.message, '我知道了');
+        }
+      }).always(function () {
+        loading.off()
+      });
+    }
+
+    // 另存为Excel
+    $(document).on('click','.J_lcw',function(){
+      window.open(conf.urlPrefix + '/jzfp/exportExcel','_self')
+    })
+  });
+</script>
+
+</html>

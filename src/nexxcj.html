@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>贫困人员信息采集</title>
+    <link rel="stylesheet" href="./styles/css/common.css" />
+    <link rel="stylesheet" href="./styles/css/xxwh.css" />
+</head>
+
+<body>
+    <div class="all">
+        <include src="./include/head.html"></include>
+        <div class="drdc w">
+            <span class="tab_dr left bgc">
+                <a href="./xxwh.html">
+                    人员信息维护
+                </a>
+            </span>
+            <span class="lr left">
+                <a href="./index.html">
+                    人员信息导入
+                </a>
+            </span>
+        </div>
+        <div class="contentnr">
+            <div class="color w"></div>
+            <!-- <div class="content_title">
+            <p>贫困人员信息采集</p>
+            </div> -->
+            <div class="cxtj">
+                <p>人员信息</p>
+            </div>
+            <div class="form_content">
+                <div class="bd_table">
+                    <form name="form_xxcj" msgtype="2" validate="blur" id="form">
+                        <div id="detailWrap" class="">
+                        <script type="text/html" id="detailTem">
+                        <%var ryxx = data %>
+                        <div class="clearfix bd">
+                            <div class="left sfzhm com_bt left_wd"><span class="xing">*</span>身份证号码</div>
+                            <div class="left sfzk">
+                                <input type="text" class="com_text sfzxx" name="sfzhm" value="<%=ryxx.sfzhm%>" v_require valiflag="18,sfzhm,身份证号码" paramete="sfzhm">
+                            </div>
+                            <div class="left xm com_bt"><span class="xing">*</span>姓名</div>
+                            <div class="left xmk">
+                                <input type="text" class="com_text xmname"  name="username" value="<%=ryxx.xm%>" v_require valiflag="32,full,姓名" paramete="xm">
+                            </div>
+                        </div>
+                        <div class="clearfix bd">
+                            <div class="left com_bt left_wd"><span class="xing">*</span>出生日期</div>
+                            <div class="left csrqn">
+                                <input type="text" id="start_time_name"  paramete="csrq" class="rq_ks left csrq com_text" name="start_time_name" value="<%=ryxx.csrq%>" v_require valiflag=",full,出生日期" disabled>
+                                <!-- <input id="start_time_name" type="text" paramete="csrq" disabled class="rq_ks left csrq com_text" name="start_time_name" onclick="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd ',maxDate:'%y-%M-%d'})">                                    </div> -->
+                            </div>
+                            <div class="left com_bt nl" ><span class="xing">*</span>年龄</div>
+                            <div class="left nlk">
+                                <input type="text" class="com_text nlnj"  name="nl" value="<%=ryxx.nl%>" v_require valiflag=",full,年龄" disabled>
+                            </div>
+                            <div class="left com_bt xb"><span class="xing">*</span>性别</div>
+                            <div class="left xbk">
+                                    <input type="text" class="com_text xbxz" id="sex" v_require valiflag=",full,性别" disabled  value="<%=ryxx.xb%>"> 
+                            </div>
+                        </div>
+                        <div class="clearfix bd">
+                            <div class="left com_bt left_wd"><span class="xing">*</span>户籍地行政区划</div>
+                            <div class="left hjkd">
+                                <input type="text" class="com_text langin J_same J_hj_select kg hjszd" v_require valiflag=",full,户籍地行政区划" value="<%=ryxx.hjdxzqhmc%>" hjdxzqh="<%=ryxx.hjdxzqh%>">
+                            </div>
+                        </div>
+                        <div class="clearfix bd">
+                            <div class="left com_bt left_wd">手机号码</div>
+                            <div class="left dhhm">
+                                <input type="text" class="com_text sjdhhm J_sjhm"  name="dhhm" value="<%=ryxx.sj%>" valiflag="11,sjh,手机号码" paramete="sjh">
+                            </div>
+                            <div class="left gddh com_bt" style="padding-left:87px;">固定电话</div>
+                            <div class="left gddhqh">
+                                <input type="text" class="com_text gddhss"  name="username" value="<%=ryxx.qh%>" paramete="qh" valiflag="4,number,电话区号" maxlength="">
+                                <span>--</span>
+                                <input type="text" class="com_text gddhqh_new J_gddh"  name="username" value="<%=ryxx.gddh%>" paramete="gddh" valiflag="26,full,固定电话">
+                            </div>
+                        </div>
+                        <div class="clearfix bd">
+                            <div class="left sfyjy com_bt left_wd"><span class="xing">*</span>是否已就业</div>                          
+                            <div class="left nan" style="padding-top:6px">                                   
+                                <input type="radio" id="yes" class=" yjy" name="nan" value="1"  valiflag="1,full,是否已就业"> 
+                                <label for="yes">是</label>                                                                                                            
+                            </div>
+                            <div class="left nv" style="padding-left:17px;padding-top:6px">                                      
+                                    <input type="radio" id="no" class="wjy" name="nan" value="0"  checked  valiflag="1,full,电话号码">  
+                                    <label for="no">否</label>                                                                                                                                                                                                                    
+                            </div>
+                            <!-- 就业意愿 -->
+                            <div class="left com_bt jyyy"><span class="xing">*</span>就业意愿</div>
+                            <div class="left jyyyk">
+                                    <!-- <input type="text" class="com_text jyyydz"  v_require valiflag=",full,性别" disabled> -->
+                                <select class="com_text jyyxxz" id="J_jyyy" valiflag="32,full,就业意愿" value="<%=ryxx.jyyy%>">
+                                    <option value="">请选择</option>
+                                    <option value="01">就地就近就业</option>
+                                    <option value="02">外出就业</option>
+                                </select>
+                            </div>
+                            <div class="left com_bt jyyx">就业意向</div>
+                            <div class="left jyyxk">
+                                <input type="text"  class="com_text jyyxnr"  name="jyyx" value=""  >
+                                <ul class="JyyxList jyyx_list hide">
+                                
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- 显示隐藏 -->
+                        <div class="jy_content">
+                            <div class="clearfix bd">
+                                <div class="left com_bt left_wd"><span class="xing">*</span>就业所在省(市)</div>
+                                <div class="left jykd">
+                                    <input type="text" class="com_text langin J_same J_jy_select  kg jyszss" valiflag="12,full,就业所在省(市)" val="<%=ryxx.jydxzqhmc%>" jydxzqh="<%=ryxx.jydxzqh%>">
+                                </div>
+                            </div>
+                            <div class="clearfix bd">
+                                <div class="left sfyjy com_bt left_wd"><span class="xing">*</span>就业单位名称</div>
+                                <div class="left jydwmc">
+                                    <input type="text" class="com_text jydwmck" value="<%=ryxx.gwmc%>" valiflag="128,full,就业单位名称" gwbh="data.gwbh" ssgzbh="data.ssgzbh">
+                                </div>
+                            </div>
+                        </div>
+                        </script>
+                        </div>
+                    </form>
+                    <div class="z_btn">
+                        <input type="reset" class="reset_btn cxcz_btn" value="清空" />
+                        <input type="button" class="fh_btn cxcz_btn" value="返回" />
+                        <input class="bc_btn cxcz_btn" type="button" value="保存" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include src="./include/foot.html"></include>
+    </div>
+    <script src="./common/vendor.js"></script>
+    <script src="./common/validator.js"></script>
+    <script src="./common/date/WdatePicker.js"></script>
+    <script src="./common/levelPlugin.js"></script>
+    <script src="./common/generaltools.js"></script>
+    <script src="./common/public.js"></script>
+    <script src="./common/common.js"></script>
+    <script src="./common/textchange.js"></script>
+    <script>
+        $(function () {
+            var loading = new $.Loading();
+            var grbh = $.paramObj().grbh;
+            var jzfpmcid = $.paramObj().jzfpmcid;
+            var ywcz = $.paramObj().ywcz;
+            // 清除
+            $('body').on('click', '.reset_btn', function () {
+                window.location = window.location;
+            });
+            // 返回
+            $('body').on('click', '.fh_btn', function () {
+                window.history.back(-1);
+            });
+            // 页面回显    
+            xxcx();
+            function xxcx() {
+                loading.on()
+                if (ywcz == 1) {
+                    grbh = '';
+                    jzfpmcid = '';
+                }
+                $.asyncRender({
+                    url: '/jzfp/jzfpryxxCx',
+                    type: 'get',
+                    data: {
+                        grbh: grbh,
+                        jzfpmcid: jzfpmcid
+                    },
+                    pos: 'returnData.jzfpryXx',
+                    tem: '#detailTem',
+                    wrap: '#detailWrap'
+                }).done(function (result) {
+                    loadValid();
+                    if (ywcz == 2) { // 维护
+                        $(".sfzxx").attr('disabled', 'disabled');
+                    } else if (ywcz == undefined) { //查看
+                        $("#form input,#form select").attr('disabled', 'disabled');
+                        $("#form select").css('background', '#EBEBE4');
+                        $(".reset_btn,.bc_btn").css('display', 'none');
+                        $(".jy_content").css("display", "block");
+                        $(".jyyx,.jyyxnr,.jyyy,.jyyxxz").css("display", "none");
+                    }
+                    // 住址户籍行政区划代码获取
+                    $.ajax({
+                        beforeSend: function () { },
+                        url: './common/jzfpxzqh.json'
+                    }).done(function (res) {
+                        $('.J_hj_select').pull(res);
+                    });
+                    var data = result.returnData;
+                    if (data.executeResult == '1') {
+                        $('#J_jyyy').val(data.jzfpryXx.jyyy)
+                        // loadValid();                                              
+                    } else {
+                        $.layerMsg(data.message, '我知道了');
+                    }
+                }).always(function () {
+                    loading.off()
+                });
+            }
+            // 点击是显示
+            $(".yjy").removeAttr("checked");
+            // $(".yjy").prop("checked",false);
+            $("body").on('click', '.yjy', function () {
+                $('.jyszss,.jydwmck').attr("v_require", '');
+                $('#J_jyyy').removeAttr("v_require");
+                $('.wjy').removeAttr("checked");
+                $('.jy_content').show();
+                $(".jyyxk,.jyyx,.jyyy,.jyyyk").hide();
+                $.ajax({
+                    beforeSend: function () { },
+                    url: './common/qgxzqh.json'
+                }).done(function (res) {
+                    $('.J_jy_select').pull(res);
+                });
+            })
+            // 点击否隐藏
+            $("body").on('click', '.wjy', function () {
+                $('.jyszss,.jydwmck').removeAttr("v_require"); 
+                $('#J_jyyy').attr("v_require", '');         
+                $('.yjy').removeAttr("checked");
+                $('.jy_content').hide();
+                $(".jyyxk,.jyyx,.jyyxxz,.jyyy,.jyyyk").show();
+            })
+            // 身份证失焦
+            $("body").on('blur', '.sfzxx', function () {
+                var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+                if (!reg.test($(this).val())) {
+                    return false;
+                };
+                $.fetch({
+                    url: '/jzfp/jzfpryxxCxBySfzhm',
+                    type: 'get',
+                    data: {
+                        sfzhm: $(".sfzxx").val()
+                    }
+                }).done(function (result) {
+                    var result = result.returnData;
+                    if (result.executeResult == '1') {
+                        var fhsj = result.jzfpryxxCxBySfzhm[0];
+                        if (fhsj.xb == "2") {
+                            $("#sex").val('女');
+                        } else if (fhsj.xb == "1") {
+                            $("#sex").val('男');
+                        };
+                        $(".nlnj").val(fhsj.nl);
+                        $(".csrq").val(fhsj.csrq);
+                        $(".xmname").val(fhsj.xm);
+                        $(".hjszd").val(fhsj.hjdxzqhmc);
+                        $(".hjszd").attr('hjdxzqh', fhsj.hjdxzqh);
+                        $(".sjdhhm").val(fhsj.sj);
+                        $(".grbh").val(fhsj.grbh);
+                        $(".jyyxnr").val(fhsj.gwmc);
+                        $(".gddhss").val(fhsj.qh);
+                        $(".gddhqh_new").val(fhsj.gddh);
+                    } else {
+                        $.layerMsg(result.message, '我知道了');
+                    }
+                }).always(function () {
+                })
+            })
+            // 就业意向失焦
+            $("body").on('textchange', '.jyyxnr', function () {
+                changeInput();
+            })
+            $(document).on('click', function () {
+                $('.JyyxList').hide()
+            })
+            function changeInput() {
+                $('.JyyxList').html('')
+                $.fetch({
+                    url: '/jzfp/jzfpryxxCxByJyyx',
+                    type: 'get',
+                    data: {
+                        gwmc: $(".jyyxnr").val()
+                    }
+                }).done(function (result) {
+                    var jzfpryxxCxByJyyx = result.returnData.jzfpryxxCxByJyyx;
+                    if (result.returnData.executeResult == '1') {
+                        var str = '';
+                        for (var i = 0; i < jzfpryxxCxByJyyx.length; i++) {
+                            str += '<li gwbh="' + jzfpryxxCxByJyyx[i].gwbh + '" ssgzbh="' + jzfpryxxCxByJyyx[i].ssgzbh + '">' + jzfpryxxCxByJyyx[i].gwmc + '</li>'
+                        }
+                        $('.JyyxList').show()
+                        $('.JyyxList').html(str)
+                    } else {
+                        $.layerMsg(result.message, '我知道了');
+                    }
+                })
+            }
+            // 就业意向列表点击
+            $('body').on('click', '.JyyxList li', function () {
+                var jyyxInput = $(this).parents('ul').siblings('.jyyxnr');
+                jyyxInput.attr('gwbh', $(this).attr('gwbh'))
+                jyyxInput.attr('ssgzbh', $(this).attr('ssgzbh'))
+                jyyxInput.val($(this).text())
+                $(this).parents('ul').hide()
+            })
+            // 保存
+            $('body').on('click', '.bc_btn', function () {
+                if (!validate('form_xxcj')) {
+                    return false;
+                }
+                if ($('.J_sjhm').val() == '' && $('.J_gddh').val() == '') {
+                    $.layerMsg('请输入电话号码或者固定电话!', '确定')
+                    return false;
+                }
+                $.layerMsg('确定保存当前信息吗？', [
+                    {
+                        text: '确定',
+                        cb: function () {
+                            loading.on()
+                            var data = $('.bd_table').getFormData();
+                            // console.log(data);
+                            var grbh = $.paramObj().grbh;
+                            var jzfpmcid = $.paramObj().jzfpmcid;
+                            var ywcz = $.paramObj().ywcz;
+                            // 性别
+                            var xb = '';
+                            if ($("#sex").val() == "女") {
+                                xb = "2"
+                            } else {
+                                xb = "1"
+                            };
+                            data.xb = xb;
+                            // 户籍地址
+                            var hjdzid = "";
+                            var hjdzData = $('.J_hj_select').data('data');
+                            if (hjdzData != undefined) {
+                                hjdzid = hjdzData.id;
+                            } else {
+                                hjdzid = $(".hjszd").attr("hjdxzqh");
+                            }
+                            // 就业单位地址
+                            var jydzid = "";
+                            var jydzData = $('.J_jy_select').data('data');
+                            if (jydzData != undefined) {
+                                jydzid = jydzData.id;
+                            } else {
+                                jydzid = $(".jyszss").attr("jydxzqh");
+                            }
+                            // 共同传入数据
+                            data.grbh = grbh;
+                            data.jzfpmcid = jzfpmcid;
+                            data.ywcz = ywcz;
+                            data.pageSize = 12;
+                            data.pageNum = 1;
+                            data.hjdxzqh = hjdzid;
+                            // radio
+                            var sfyjy = "";
+                            if ($(".yjy").prop('checked') == true) {                            
+                                data.sfyjy = $(".yjy").val();
+                                data.jydxzqh = jydzid;
+                                data.jydwmc = $(".jydwmck").val();
+                                data.gwmc = "";
+                                data.gwbh = "";
+                                data.jyyy = "";
+                            } else if ($(".wjy").prop('checked') == true) {
+                                data.sfyjy = $(".wjy").val();
+                                data.gwmc = $(".jyyxnr").val();
+                                data.gwbh = $(".jyyxnr").attr('gwbh');
+                                data.ssgzbh = $(".jyyxnr").attr('ssgzbh');
+                                data.jyyy = $("#J_jyyy").val();
+                                data.jydxzqh = "";
+                                data.jydwmc = "";
+                                
+                            }
+                            $.fetch({
+                                url: '/jzfp/jzfpryBc',
+                                type: 'post',
+                                data: data,
+                            }).done(function (result) {
+                                var result = result.returnData;
+                                if (result.executeResult == '1') {
+                                    $.layerMsg(result.message, "确定");
+                                    window.location.href = "./xxwh.html";
+                                } else {
+                                    $.layerMsg(result.message, '我知道了');
+                                }
+                            }).always(function () {
+                                loading.off();
+                            })
+                        }
+                    }, {
+                        text: '取消',
+                        cb: function () {
+                            return false;
+                        }
+                    }
+                ]);
+            })
+        })
+    // })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,739 @@
+/* 1. 将页面中标签具有默认的内外边距去掉
+
+2、 将页面中标签有默认的边框去掉
+
+3. 将页面中标签有默认的文字颜色，其他默认样式去掉
+
+4. 设置一个基本的统一样式【文字颜色，文字大小，文字字体】 */
+
+body,
+p,
+ul,
+ol,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #666560;
+    font-size: 18px;
+    font-family: "微软雅黑";
+}
+
+
+a {
+    text-decoration: none;
+    color: #0099ff;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+    outline: none;
+}
+
+input,
+img {
+    border: 0 none;
+    outline-style: none;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+.hide{
+    display: none;
+}
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+button {
+    color: #0099ff;
+    width: 120px;
+    height: 38px;
+}
+
+.footer {
+  background-color: #c0dbf7;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  /* margin-bottom: 0px; */
+  margin-top: 20px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.footer p {
+  font-size: 12px;
+  color: #334b70;
+  text-align: center;
+  line-height: 18px;
+}
+
+.cxcz_btn {
+    width: 100px;
+    height: 40px;
+    background: #0099ff;
+    color: #fff;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+/* 表格字体加粗 */
+.list tbody {
+    font-size: 18px;
+    font-weight: 600;
+    color: #666666;
+}
+/* 替换 */
+.passes {
+    position: absolute;
+    left: 18px;
+    font-size: 14px;
+    color: #999;
+  }
+  
+
+/* 顶部 */
+
+.Top {
+    background-color: #f4f6f9;
+    color: #676767;
+}
+
+.TopNav {
+    height: 50px;
+    width: 1200px;
+    line-height: 50px;
+    background-color: #f4f6f9;
+}
+
+.TopNav ul li {
+    vertical-align: middle;
+}
+
+.TopNav ul li a {
+    color: #a8a9ab;
+    margin-left: 5px;
+}
+
+.TopLeft {
+    float: left;
+}
+
+.TopLeft span {
+    font-size: 18px;
+    font-family: "黑体";
+    font-weight: bold;
+    color: #0099ff;
+}
+
+.TopRight li {
+    float: right;
+}
+.TopRight li img {
+    height: 20px;
+}
+
+.Top_img img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: url(../images/cxtjbjt.png) no-repeat;
+    text-align: center;
+}
+
+
+/* 底层 */
+
+.footer {
+    background-color: #fff;
+    /* position: fixed; */
+    /* bottom: 0; */
+    position: relative;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+.bottom {
+    position: relative;
+    height: 154px;
+    background: url(../images/bottom.png) no-repeat;
+    text-align: center;
+}
+
+.bottom_left img {
+    position: absolute;
+    top: 50px;
+    left: 19%;
+}
+
+.bottom_right img {
+    position: absolute;
+    top: 50px;
+    right: 25%;
+}
+
+.bottom .bottom_msg {
+    position: absolute;
+    right: 50%;
+    margin-right: -14%;
+    top: 55px;
+    line-height: 16px;
+    color: #656565;
+}
+
+body {
+    position: relative;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+    background-color: #ededed;
+}
+.fileinput-button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.content{
+  /* overflow: auto; */
+  min-height: 495px;
+}
+.content_c {
+  background-color: #fff;
+}
+.color {
+  height: 18px;
+  background-color: #ededed;
+}
+.even {
+  background-color:#f1f9ff !important;
+ }
+ .odd{
+  background-color:#fff !important;
+ }
+ .b{
+  background-color: #c9e9ff !important;
+}
+.drdc{
+  height: 45px;
+  line-height: 45px;
+  margin-top: 8px;
+  background-color: #fff;
+}
+.tab_dr {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  width: 200px;
+}
+/* .tab_dr:active, .tab_dr:active{
+    background-color: #21aaee;
+} */
+.img_link{
+    cursor: pointer;
+}
+.bgc {
+    background-color: #3a9bf6;
+    color: #fff !important;
+}
+.bgc a {
+    color: #fff !important;
+}
+.lr{
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  width: 200px;
+}
+.tab_dr a, .lr a{
+  color: #676767;
+}
+.cxbg{
+    min-height: 130px;
+}
+.change_mm{
+    padding-left: 5px;
+    cursor: pointer;
+   color: #666560 !important;
+}
+/* loading 组件 */
+
+.co_loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1998;
+  }
+  
+  .co_loading .co_wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.1;
+    filter: alpha(opacity=10);
+  }
+  
+  .co_loading .co_content {
+    z-index: 5;
+    width: 200px;
+    text-align: center;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+    color: #246fde;
+    line-height: 1.5;
+  }
+  
+  .co_loading .co_content .co_img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+  }
+  
+/*************** 分页样式 *****************/
+.pageTool{
+	font-size: 14px;
+	color: #999;
+	margin: 34px auto 0;
+	overflow: hidden;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.pageTool:after{
+	content: " ";
+	clear: both;
+	display: block;
+}
+.pageTool_left{
+	display: none;
+	/*float: left;
+	margin-left: 15px;
+	line-height: 32px;*/
+}
+.pageTool_right{
+	/*float: right;
+	margin-right: 15px;*/
+}
+
+.pageTool_right span{
+	display: inline-block;
+	/*float: left;*/
+	height: 32px;
+	min-width: 22px;
+	text-align: center;
+	line-height: 32px;
+	border: 1px solid #E6E6E6;
+	background: #ffffff;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-right: 8px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.pageTool_right > .wrap_pageItem{
+	display: inline-block;
+	/*float: left;*/
+
+}
+.pageTool_select{
+	/* display: none; */
+	outline: none;
+	height: 32px;
+	padding:0 9px;
+	line-height: 32px;
+	border: 1px solid #E6E6E6;
+	color: #999;
+	/* display: block;
+	float: left; */
+	margin-top: 0px;
+}
+.pageTool_right .pageToolJump{
+	display: none;
+	/* width: auto;
+	border: none;
+	margin-left: 8px;
+	display: block;
+	float: left; */
+}
+.pageTool_right .pageToolText{
+	display: none;
+	/* display: block;
+	float: left;
+	width: 48px;
+	height: 28px;
+	text-align: center;
+	border: 1px solid #E6E6E6;
+	outline: none; */
+}
+.pageTool_right .pageTool_currentPage{
+	background: #21AAEE;
+	color: #fff;
+	border: 1px solid #21AAEE;
+}
+.pageTool_right .wrap_pageItem span:hover,.pageTool_right .pageTool_previous:hover,.pageTool_right .pageTool_next:hover{
+	background: #21AAEE;
+	color: #fff;
+	border: 1px solid #21AAEE;
+}
+.pageTool_right .pageTool_previous{
+	padding-right: 10px;
+}
+.pageTool_right .pageTool_next{
+	padding-left: 10px;
+}
+.pageTool_right .pageTool_next.disclick,.pageTool_right .pageTool_previous.disclick{
+    color:#e6e6e6;
+    border:1px solid #e6e6e6;
+}
+.pageTool_right .pageTool_next:hover.disclick,.pageTool_right .pageTool_previous.disclick:hover{
+    background: #fff;
+    color:#e6e6e6;
+    border:1px solid #e6e6e6;
+}
+.noneData {
+    text-align: center;
+    color: #8b97a3;
+    font-size: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: #fff no-repeat center 10px;
+}
+
+.person_apply .noneData {
+    background-color: #f3fafd;
+}
+
+.loginout{
+    margin-right: 20px;
+    cursor: pointer;
+}
+/* 第三方插件 样式 */
+
+
+/*************  ownalert 样式  ************/
+
+.own_alert_div {
+    /*设置整体弹出层的z-index*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9991;
+    width: 100%;
+    height: 100%;
+}
+
+.own_alert_div .own_alert_cover {
+    /*透明遮盖层*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+
+.own_alert_div .own_alert_con {
+    /*显示层div整体样式*/
+    width: 350px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -86px -175px;
+    border-radius: 4px;
+}
+
+.own_alert_div .own_alert_con p {
+    /*显示的提示信息的样式*/
+    width: 90%;
+    margin: 10px auto;
+    min-height: 50px;
+    color: #808080;
+    line-height: 26px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.own_alert_div .own_alert_title {
+    /*弹出窗口的头部样式*/
+    height: 45px;
+    margin: 0 10px;
+    line-height: 45px;
+    border-bottom: 1px solid #3a9bf6;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #3a9bf6;
+}
+
+.own_alert_div .own_alert_btn {
+    /*弹出窗口的底部样式*/
+    height: 46px;
+    line-height: 46px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.own_alert_div .own_alert_btn input {
+    /*弹出窗口的按钮样式*/
+    height: 30px;
+    padding: 0 18px;
+    color: #fff;
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #3a9bf6;
+    background: #3a9bf6;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+
+/* 行政规划层级样式 */
+
+.bksxfed-levelPlugin-pull_text {
+    background: url('pull_title.png') right center no-repeat;
+    height: 38px;
+    line-height: 38px;
+    font-size: 14px;
+    padding-left: 10px;
+    min-width: 286px;
+    border: 1px solid #d4dae5;
+    color: #000;
+    outline: none;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 20px;
+}
+
+.bksxfed-levelPlugin-pan_hide {
+    overflow: hidden;
+}
+
+.bksxfed-levelPlugin-pl_display {
+    display: none !important;
+}
+
+.bksxfed-levelPlugin-pulltext {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/*为空时显示 element attribute content*/
+
+.bksxfed-levelPlugin-pull_text:empty:before {
+    content: attr(placeholder);
+    /* element attribute*/
+    /*content: 'this is content';*/
+    color: #999999;
+}
+
+
+/*焦点时内容为空*/
+
+.bksxfed-levelPlugin-pull_text:focus:before {
+    content: none;
+}
+
+.bksxfed-levelPlugin-pull_title {
+    width: 100%;
+    height: 47px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 999999;
+}
+
+.bksxfed-levelPlugin-pull_position {
+    height: 46px;
+    margin-left: 20px;
+    position: relative;
+    border-bottom: 1px solid #e9ecf2;
+    overflow: hidden;
+}
+
+.bksxfed-levelPlugin-pull_t_01 {
+    height: 47px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.bksxfed-levelPlugin-pull_title span {
+    font-size: 14px;
+    line-height: 38px;
+    color: #666666;
+    margin: 8px 10px 0;
+    display: inline-block;
+    border-bottom: 2px;
+    /* moz-user-select: -moz-none; */
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /**禁止选中文字*/
+}
+
+.bksxfed-levelPlugin-pull_title span.bksxfed-levelPlugin-active {
+    color: #3a9bf6;
+    border-bottom: 2px solid #3a9bf6;
+}
+
+.bksxfed-levelPlugin-pull_main {
+    height: 244px;
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+    top: 47px;
+    left: 0;
+    border-top: none;
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /**禁止选中文字*/
+    overflow: hidden;
+    z-index: 999999;
+    background: #ffffff;
+}
+
+.bksxfed-levelPlugin-pull_scroll {
+    width: 4px;
+    height: 130px;
+    background: #acb5c0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+.bksxfed-levelPlugin-pull_main ul {
+    padding-top: 14px;
+    /*
+      margin-left:342px;
+      */
+}
+
+.bksxfed-levelPlugin-pull_main li {
+    height: 38px;
+    color: #666666;
+    font-size: 14px;
+    margin-left: 30px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.bksxfed-levelPlugin-pull_main li span {
+    display: inline-block;
+    height: 38px;
+    padding-right: 26px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.bksxfed-levelPlugin-pull_main li span.bksxfed-levelPlugin-active {
+    background: url('pull_main.jpg') right center no-repeat;
+    color: #3a9bf6;
+}
+
+.bksxfed-levelPlugin-pull_main::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: #f5f5f5;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角 */
+
+.bksxfed-levelPlugin-pull_main::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: #f5f5f5;
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+.bksxfed-levelPlugin-pull_main::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #555;
+}
+
+.bksxfed-levelPlugin-wrap_pull {
+    z-index: 999999;
+    position: absolute;
+    height: 292px;
+    min-width: 286px;
+    border: 1px solid #d4dae5;
+    border-top: none;
+}
+/* error_info */
+.error_info {
+    display: block;
+    width: 100%;
+	position: absolute;
+	top: 48px;
+	left: 0;
+	font-size: 14px;
+	color: #fe9674;
+}
